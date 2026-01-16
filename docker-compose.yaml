@@ -24,7 +24,7 @@ services:
   
   vllm:
     image: vllm/vllm-openai:latest
-    command: --model Qwen/Qwen2.5-1.5B-Instruct
+    command: --model Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.7
     deploy:
       resources:
         reservations:
