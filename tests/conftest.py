@@ -9,7 +9,6 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from database.models.base import BaseModel  # this should be SQLModel-based
-from apis.deps import get_db
 from apis.main import api_router
 
 
