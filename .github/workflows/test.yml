@@ -25,4 +25,10 @@ jobs:
       run: pipenv install --dev
 
     - name: Run tests
+      env:
+        DB_USER: "test"
+        DB_PASSWORD: "test_secret"
+        DB_HOST: "db_test"
+        DB_PORT: "5432"
+        DB_NAME: "test_database"
       run: pipenv run pytest -q
