@@ -10,3 +10,5 @@ class User(BaseModel, table=True):
     email: str = Field(unique=True, index=True)
     full_name: str
     password: str
+
+    chats: List["Chat"] = Relationship(back_populates="user")

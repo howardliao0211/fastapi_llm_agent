@@ -3,8 +3,10 @@ services:
     build: .
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     depends_on:
-      - db
-      - vllm
+      vllm:
+        condition: service_healthy
+      db:
+        condition: service_started
     volumes:
       - .:/app
     ports:
@@ -25,6 +27,18 @@ services:
       - "5432:5432"
     restart: always
   
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
   vllm:
     image: vllm/vllm-openai:latest
     command: --model Qwen/Qwen2.5-1.5B-Instruct --gpu-memory-utilization 0.7
@@ -37,7 +51,15 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all
     volumes:
       - hf_cache:/root/.cache/huggingface
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/v1/models"]
+      interval: 10s
+      timeout: 30s
+      retries: 10
+      start_period: 20s
+
 
 volumes:
   postgres_data:
   hf_cache:
+  pgadmin_data:

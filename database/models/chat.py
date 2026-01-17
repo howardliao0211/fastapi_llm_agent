@@ -3,6 +3,6 @@ from sqlmodel import Field, Relationship
 from typing import List
 
 class Chat(BaseModel, table=True):
-    chat_id: int = Field(unique=True)
-    history: List[str]
+    user_id: int = Field(foreign_key="user.id")
     user: "User" = Relationship(back_populates="chats")
+    messages: List["Message"] = Relationship(back_populates="chat")

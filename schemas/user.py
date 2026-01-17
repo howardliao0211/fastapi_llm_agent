@@ -10,5 +10,3 @@ class ShowUser(BaseModel):
     id: int
     full_name: str
     email: EmailStr
-
-    model_config = ConfigDict(from_attributes=True)

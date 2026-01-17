@@ -7,11 +7,9 @@ from database.models.user import User
 def insert_user(user: UserCreate, db:Session = Depends(get_db)) -> User:
     db_user = User(
         username=user.email,
-        fullname=user.full_name,
-        email=user.email,
-        password=user.password
+        **user.model_dump()
     )
-    
+
     db.add(db_user)
     db.commit()
     db.refresh(db_user)

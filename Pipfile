@@ -8,6 +8,8 @@ fastapi = {extras = ["standard"], version = "*"}
 python-dotenv = "*"
 psycopg2-binary = "*"
 sqlmodel = "*"
+openai = "*"
+alembic = "*"
 
 [dev-packages]
 pytest = "*"
