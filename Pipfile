@@ -10,6 +10,8 @@ psycopg2-binary = "*"
 sqlmodel = "*"
 openai = "*"
 alembic = "*"
+pyjwt = "*"
+python-multipart = "*"
 
 [dev-packages]
 pytest = "*"
