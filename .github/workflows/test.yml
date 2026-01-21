@@ -31,4 +31,5 @@ jobs:
         DB_HOST: "db_test"
         DB_PORT: "5432"
         DB_NAME: "test_database"
+        SECRET_KEY: "test_key"
       run: pipenv run pytest -q

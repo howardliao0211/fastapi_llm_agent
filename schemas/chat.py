@@ -1,5 +1,5 @@
-from pydantic import BaseModel, Field
-from typing import List
+from pydantic import BaseModel, Field, field_validator, EmailStr, ConfigDict
 
-class ChatCreate(BaseModel):
-    user_id:int
+class ShowChat(BaseModel):
+    id: int
+    title: str

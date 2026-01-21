@@ -1,12 +1,13 @@
-from schemas.chat import ChatCreate
 from database.models.chat import Chat
+from database.models.user import User
 from fastapi import Depends
-from apis.deps import get_db
+from apis.deps import get_db, get_current_user
 from sqlmodel import Session
 
-def insert_chat(chat: ChatCreate, db:Session=Depends(get_db)) -> Chat:
+def insert_chat(user_id:int, title:str, db:Session=Depends(get_db)) -> Chat:
     db_chat = Chat(
-        **chat.model_dump()
+        user_id=user_id,
+        title=title
     )
 
     db.add(db_chat)

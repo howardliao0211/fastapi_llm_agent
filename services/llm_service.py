@@ -17,4 +17,14 @@ class LLM_Service:
         )
         return response.choices[0].message.content
 
+    async def generate_title(self, message: str) -> str:
+        messages = [
+            {
+                "role": "user",
+                "content": f"Help me summarize this message into a short title (≤30 words). Reply with only the title:\n\n{message}"
+            }
+        ]
+        title = await self.call_chat_completion(messages)
+        return title
+
 llm_service = LLM_Service()
