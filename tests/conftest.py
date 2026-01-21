@@ -63,3 +63,30 @@ def client(app: FastAPI, db_session: Session) -> Generator[TestClient, Any, None
 
     with TestClient(app) as c:
         yield c
+
+import pytest
+from fastapi.testclient import TestClient
+
+@pytest.fixture
+def auth_headers(client: TestClient):
+    # Register user
+    register_data = {
+        "full_name": "testuser",
+        "email": "testuser@gmail.com",
+        "password": "testing"
+    }
+    res = client.post("/api/v1/users", json=register_data)
+    assert res.status_code == 201
+
+    # Login for token
+    login_data = {
+        "username": register_data["email"],
+        "password": register_data["password"],
+    }
+    res = client.post("/api/v1/token", data=login_data)
+    assert res.status_code == 200
+
+    token = res.json()["access_token"]
+    assert token is not None
+
+    return {"Authorization": f"Bearer {token}"}

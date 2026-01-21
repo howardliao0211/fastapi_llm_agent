@@ -4,6 +4,7 @@ from sqlmodel import Session, select
 from apis.deps import get_db
 from database.models.message import Message, Role
 from services.llm_service import llm_service
+from typing import List
 
 def insert_message(chat_id: int, message: MessageCreate, db: Session=Depends(get_db)) -> Message:
     db_msg = Message(
@@ -15,6 +16,9 @@ def insert_message(chat_id: int, message: MessageCreate, db: Session=Depends(get
     db.commit()
     db.refresh(db_msg)
     return db_msg
+
+def get_all_messages_with_chat_id(chat_id: int, db: Session=Depends(get_db)) -> List[Message]:
+    return db.exec(select(Message).where(Message.chat_id == chat_id)).all()
 
 async def handle_llm_turn(chat_id: int, new_message: MessageCreate, db: Session=Depends(get_db)) -> Message:
     insert_message(chat_id, new_message, db)

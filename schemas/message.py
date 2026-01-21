@@ -3,9 +3,9 @@ from pydantic import BaseModel, Field
 
 class MessageCreate(BaseModel):
     role: Role = Field(default=Role.USER)
-    content: str = Field(..., max_length=255)
+    content: str = Field(...)
 
-class ResponseMessage(BaseModel):
+class ShowMessage(BaseModel):
     id: int
     role: Role
     content: str
