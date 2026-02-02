@@ -63,7 +63,7 @@ export default function Login(): JSX.Element {
                         {loading ? 'Logging in...' : 'Login'}
                     </button>
 
-                    <p className="text-sm text-gray-400">
+                    <p className=" rounded text-sm justify-items-center bg-neutral-900 px-2">
                         Don’t have an account?{" "}
                         <br />
                         <a href="/signup" className="text-amber-500 hover:underline">
