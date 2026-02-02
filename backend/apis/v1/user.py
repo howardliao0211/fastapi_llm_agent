@@ -8,10 +8,12 @@ from typing import List
 
 router = APIRouter()
 
+
 @router.post("/users", response_model=ShowUser, status_code=status.HTTP_201_CREATED)
-def create_user(user: UserCreate, db: Session=Depends(get_db)):
+def create_user(user: UserCreate, db: Session = Depends(get_db)):
     return insert_user(user, db)
 
+
 @router.get("/users", response_model=List[ShowUser], status_code=status.HTTP_200_OK)
-def get_users(db: Session=Depends(get_db)):
+def get_users(db: Session = Depends(get_db)):
     return get_all_users(db)
