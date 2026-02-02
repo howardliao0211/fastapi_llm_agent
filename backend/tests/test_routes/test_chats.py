@@ -6,7 +6,7 @@ def test_create_chat_with_auth(client: TestClient, auth_headers, monkeypatch):
         return "This is a monkey assistant"
 
     monkeypatch.setattr(
-        "services.llm_service.llm_service.call_chat_completion",
+        "backend.services.llm_service.llm_service.call_chat_completion",
         mock_call_chat_completion
     )
 
@@ -30,7 +30,7 @@ def test_create_message_in_existing_chat(client: TestClient, auth_headers, monke
 
     # Apply monkeypatch
     monkeypatch.setattr(
-        "services.llm_service.llm_service.call_chat_completion",
+        "backend.services.llm_service.llm_service.call_chat_completion",
         mock_call_chat_completion
     )
 
@@ -59,7 +59,7 @@ def test_get_all_message_in_existing_chat(client: TestClient, auth_headers, monk
         return "This is a monkey assistant"
 
     monkeypatch.setattr(
-        "services.llm_service.llm_service.call_chat_completion",
+        "backend.services.llm_service.llm_service.call_chat_completion",
         mock_call_chat_completion
     )
 
@@ -117,7 +117,7 @@ def test_get_chats_with_user(client: TestClient, auth_headers, monkeypatch):
         return "mocked title"
 
     monkeypatch.setattr(
-        "services.llm_service.llm_service.call_chat_completion",
+        "backend.services.llm_service.llm_service.call_chat_completion",
         mock_call_chat_completion
     )
 
