@@ -1,14 +1,14 @@
 from fastapi import APIRouter, status, Depends
-from schemas.message import MessageCreate, ShowMessage
-from schemas.chat import ShowChat
-from database.crud.chat import insert_chat, get_chat_with_user_id
-from database.crud.message import insert_message, handle_llm_turn, get_all_messages_with_chat_id
-from database.models.user import User
-from database.models.message import Role, Message
-from database.models.chat import Chat
+from backend.schemas.message import MessageCreate, ShowMessage
+from backend.schemas.chat import ShowChat
+from backend.database.crud.chat import insert_chat, get_chat_with_user_id
+from backend.database.crud.message import insert_message, handle_llm_turn, get_all_messages_with_chat_id
+from backend.database.models.user import User
+from backend.database.models.message import Role, Message
+from backend.database.models.chat import Chat
 from sqlmodel import Session
-from apis.deps import get_db, get_current_user
-from services.llm_service import llm_service
+from backend.apis.deps import get_db, get_current_user
+from backend.services.llm_service import llm_service
 from fastapi import HTTPException
 from typing import List
 

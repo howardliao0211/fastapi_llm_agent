@@ -2,9 +2,9 @@ from fastapi import APIRouter, status, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlmodel import Session
 
-from apis.deps import get_db
-from core.security import create_access_token
-from database.crud.user import get_user_by_email
+from backend.apis.deps import get_db
+from backend.core.security import create_access_token
+from backend.database.crud.user import get_user_by_email
 
 router = APIRouter()
 

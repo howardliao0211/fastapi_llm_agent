@@ -1,4 +1,4 @@
-from database.models.message import Message, Role
+from backend.database.models.message import Message, Role
 from pydantic import BaseModel, Field
 
 class MessageCreate(BaseModel):

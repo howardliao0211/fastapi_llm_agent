@@ -1,7 +1,7 @@
-from database.models.chat import Chat
-from database.models.user import User
+from backend.database.models.chat import Chat
+from backend.database.models.user import User
 from fastapi import Depends
-from apis.deps import get_db, get_current_user
+from backend.apis.deps import get_db, get_current_user
 from sqlmodel import Session, select
 from typing import List
 

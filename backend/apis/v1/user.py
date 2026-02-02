@@ -1,8 +1,8 @@
 from fastapi import APIRouter, status, Depends
-from schemas.user import UserCreate, ShowUser
-from apis.deps import get_db
-from database.models.user import User
-from database.crud.user import insert_user, get_all_users
+from backend.schemas.user import UserCreate, ShowUser
+from backend.apis.deps import get_db
+from backend.database.models.user import User
+from backend.database.crud.user import insert_user, get_all_users
 from sqlmodel import Session
 from typing import List
 

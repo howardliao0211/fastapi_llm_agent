@@ -1,9 +1,9 @@
-from schemas.message import MessageCreate
+from backend.schemas.message import MessageCreate
 from fastapi import Depends
 from sqlmodel import Session, select
-from apis.deps import get_db
-from database.models.message import Message, Role
-from services.llm_service import llm_service
+from backend.apis.deps import get_db
+from backend.database.models.message import Message, Role
+from backend.services.llm_service import llm_service
 from typing import List
 
 def insert_message(chat_id: int, message: MessageCreate, db: Session=Depends(get_db)) -> Message:

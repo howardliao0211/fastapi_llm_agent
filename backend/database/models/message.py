@@ -1,4 +1,4 @@
-from database.models.base import BaseModel
+from backend.database.models.base import BaseModel
 from sqlmodel import Field, Relationship
 from enum import Enum
 

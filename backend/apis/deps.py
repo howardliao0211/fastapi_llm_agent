@@ -1,11 +1,11 @@
 import jwt
 from sqlmodel import Session, select
-from database.db import engine
+from backend.database.db import engine
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 
-from core.config import settings
-from database.models.user import User
+from backend.core.config import settings
+from backend.database.models.user import User
 
 def get_db():
     with Session(engine) as session:

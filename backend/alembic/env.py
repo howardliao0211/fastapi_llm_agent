@@ -6,9 +6,9 @@ from sqlalchemy import pool
 from alembic import context
 
 #new imports
-from core.config import settings
+from backend.core.config import settings
 from sqlmodel import SQLModel
-from database.models import *  #imports all the models from __init__.py
+from backend.database.models import *  #imports all the models from __init__.py
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

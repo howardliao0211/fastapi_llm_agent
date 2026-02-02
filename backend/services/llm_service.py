@@ -1,6 +1,6 @@
 from openai import AsyncOpenAI
 from typing import List, Dict
-from core.config import settings
+from backend.core.config import settings
 
 class LLM_Service:
     def __init__(self):
