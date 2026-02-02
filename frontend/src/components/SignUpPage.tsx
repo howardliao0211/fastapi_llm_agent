@@ -81,6 +81,14 @@ export default function SignUp(): JSX.Element {
                         {loading ? 'Signing Up...' : 'Sign Up'}
                     </button>
 
+                    <p className=" rounded text-sm justify-items-center bg-neutral-900 px-2">
+                        Have an account?{" "}
+                        <br />
+                        <a href="/login" className="text-amber-500 hover:underline">
+                            Login
+                        </a>
+                    </p>
+
                 </div>
             </div>
 
