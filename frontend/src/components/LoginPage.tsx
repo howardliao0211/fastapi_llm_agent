@@ -2,9 +2,11 @@ import { useState } from 'react';
 import type { SubmitEvent } from 'react';
 import type { JSX } from 'react';
 import { login } from '../services/token';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login(): JSX.Element {
+    const navigate = useNavigate()
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
@@ -20,6 +22,7 @@ export default function Login(): JSX.Element {
             console.log('login success:', res.data);
             localStorage.setItem('token', res.data.access_token);
             alert('Login successful');
+            navigate("/chats");
         } catch (err: any) {
             const message =
                 err.response?.data?.detail ||

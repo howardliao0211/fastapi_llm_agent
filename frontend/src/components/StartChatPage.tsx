@@ -1,11 +1,21 @@
 import { useState, type JSX } from "react";
 import ChatSidebar from "./ChatSidebar";
+import { createChatWithMessage } from "../services/chat";
+import { useNavigate } from "react-router-dom";
 
 export default function StartChat(): JSX.Element {
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmitChat = () => {
-        alert(`submit message: ${message}`)
+    const handleSubmitChat = async () => {
+        try {
+            const res = await createChatWithMessage(message);
+            const chatId = res.data.id;
+            navigate(`/chats/${chatId}`);
+
+        } catch (err) {
+            console.error(`Error at starting chat: ${err}`);
+        }
     };
 
     const chats = [

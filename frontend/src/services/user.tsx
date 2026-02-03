@@ -3,17 +3,17 @@ import api from "./api";
 const USER_ROUTE = "/api/v1/users";
 
 export interface UserResponse {
-    id: number,
+    id: number;
     full_name: string;
     email: string;
 }
 
-export const createUser = (
+export const createUser = async (
     full_name: string,
     email: string,
     password: string
 ) => {
-    return api.post<UserResponse>(
+    return await api.post<UserResponse>(
         USER_ROUTE,
         {
             full_name,
@@ -23,6 +23,6 @@ export const createUser = (
     );
 };
 
-export const getUsers = () => {
-    return api.get<UserResponse[]>(USER_ROUTE);
+export const getUsers = async () => {
+    return await api.get<UserResponse[]>(USER_ROUTE);
 };

@@ -1,4 +1,5 @@
 import './App.css'
+import Chat from './components/ChatPage'
 import Login from './components/LoginPage'
 import SignUp from './components/SignUpPage'
 import StartChat from './components/StartChatPage'
@@ -9,9 +10,11 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<StartChat />} />
+                <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/chats" element={<StartChat />} />
+                <Route path="/chats/:chatId" element={<Chat />} />
             </Routes>
         </BrowserRouter>
     );

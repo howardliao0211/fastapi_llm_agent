@@ -7,8 +7,8 @@ export interface TokenResponse {
     token_type: string;
 }
 
-export const login = (username: string, password: string) => {
-    return api.post<TokenResponse>(
+export const login = async (username: string, password: string) => {
+    return await api.post<TokenResponse>(
         TOKEN_ROUTE,
         new URLSearchParams({
             username,
