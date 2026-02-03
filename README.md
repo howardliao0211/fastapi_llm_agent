@@ -6,9 +6,7 @@ This project integrates a FastAPI backend, a React + Tailwind frontend, secure J
 
 ## 🎥 Demo
 ▶️ Click the image to watch a short demo of the LLM agent in action.
-[![Demo Video](resources/demo_thumbnail.png)](
-https://github.com/howardliao0211/fastapi_llm_agent/raw/main/resources/demo.mp4
-)
+[![Demo Video](resources/demo_thumbnail.png)](https://www.youtube.com/watch?v=16nys5Z-K_A)
 
 ---
 
