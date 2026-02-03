@@ -4,6 +4,12 @@ A full-stack **LLM agent platform** built with **FastAPI** and **React**, design
 
 This project integrates a FastAPI backend, a React + Tailwind frontend, secure JWT authentication, database migrations, and **vLLM** for high-performance local or self-hosted LLM inference.
 
+## 🎥 Demo
+▶️ Click the image to watch a short demo of the LLM agent in action.
+[![Demo Video](resources/demo_thumbnail.png)](
+https://github.com/howardliao0211/fastapi_llm_agent/raw/main/resources/demo.mp4
+)
+
 ---
 
 ### Backend
